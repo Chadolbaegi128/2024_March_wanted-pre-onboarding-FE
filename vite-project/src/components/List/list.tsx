@@ -1,4 +1,5 @@
 import { ChangeEvent, FC, useState } from 'react';
+import '../../style/List.css';
 
 const List: FC = () => {
     // 할일 글 State
@@ -8,7 +9,7 @@ const List: FC = () => {
     const [todoLists, setTodoLists] = useState<string[]>([]);
 
     // 인풋창에 할일 입력 시 입력 내용을 State에 설정
-    const onChangeTodo = (e: ChangeEvent<HTMLInputElement>) => setText(e.target.value);
+    const onChangeTodo = (e: ChangeEvent<HTMLInputElement>) => setTodo(e.target.value);
 
     // [Add] 버튼 클릭 시
     const onClickAdd = () => {
@@ -36,7 +37,19 @@ const List: FC = () => {
         <>
             <div>
                 <input type="text" value={todo} onChange={onChangeTodo} placeholder='input'/>
-                <button>Add</button>
+                <button className='addListButton' onClick={onClickAdd}>Add</button>
+                <div className='todoLists'>
+                    <ul>
+                        {todoLists.map((todo, index) => (
+                            <li key={todo}>
+                                <div className='todoWrapper'>
+                                    <p>{todo}</p>
+                                    <button onClick={() => onClickDelete(index)}>Delete</button>
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             </div>
         </>
     );
