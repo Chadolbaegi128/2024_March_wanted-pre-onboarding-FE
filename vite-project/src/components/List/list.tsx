@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { ChangeEvent, FC, useState } from 'react';
 import Add from './add';
 
 const List: FC = () => {
@@ -7,7 +7,10 @@ const List: FC = () => {
 
     // 투두 리스트 State
     const [todoList, setTodoList] = useState<string[]>([]);
-    
+
+    // 인풋창에 할일 입력 시 입력 내용을 State에 설정
+    const onChangeTodo = (e: ChangeEvent<HTMLInputElement>) => setText(e.target.value);
+
     return (
         <>
             <Add/>
