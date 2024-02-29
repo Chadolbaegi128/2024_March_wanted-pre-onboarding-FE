@@ -1,4 +1,5 @@
 import { ChangeEvent, FC, useState } from 'react';
+import Delete from './delete';
 import '../../style/List.css';
 
 const List: FC = () => {
@@ -38,18 +39,7 @@ const List: FC = () => {
             <div>
                 <input type="text" value={todo} onChange={onChangeTodo} placeholder='input'/>
                 <button className='addListButton' onClick={onClickAdd}>Add</button>
-                <div className='todoLists'>
-                    <ul>
-                        {todoLists.map((todo, index) => (
-                            <li key={todo}>
-                                <div className='todoWrapper'>
-                                    <p>{todo}</p>
-                                    <button onClick={() => onClickDelete(index)}>Delete</button>
-                                </div>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
+                <Delete todoLists={todoLists} onClickDelete={onClickDelete}/>
             </div>
         </>
     );
