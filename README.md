@@ -7,8 +7,8 @@
 [Résumé](https://drive.google.com/drive/folders/13yaSOfSDj48w_KuMCVWjKYGBaiOE4knc?usp=sharing)
     
 ## 실행 방법
-
 ```
+cd vite-project
 npm install
 npm run dev
 ```
