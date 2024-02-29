@@ -1,5 +1,4 @@
 import { ChangeEvent, FC, useState } from 'react';
-import Add from './add';
 
 const List: FC = () => {
     // 할일 글 State
@@ -35,7 +34,10 @@ const List: FC = () => {
 
     return (
         <>
-            <Add/>
+            <div>
+                <input type="text" value={todo} onChange={onChangeTodo} placeholder='input'/>
+                <button>Add</button>
+            </div>
         </>
     );
 }
