@@ -1,7 +1,7 @@
 import { FC, ChangeEvent } from 'react';
 import '../../style/Add.css';
 
-// 필요한 Props: 메모 추가 시 실행할 변수들
+// 필요한 Props: 메모 추가 시 실행할 함수들
 type Props = {
     todo: string;
     onChangeTodo: (e: ChangeEvent<HTMLInputElement>) => void;

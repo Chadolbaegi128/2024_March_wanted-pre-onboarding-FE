@@ -1,7 +1,6 @@
 import { ChangeEvent, FC, useState } from 'react';
 import Add from './add';
 import Delete from './delete';
-import '../../style/List.css';
 
 const List: FC = () => {
     // 할일 글 State
