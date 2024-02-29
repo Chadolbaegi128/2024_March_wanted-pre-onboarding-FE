@@ -1,4 +1,5 @@
 import { ChangeEvent, FC, useState } from 'react';
+import Add from './add';
 import Delete from './delete';
 import '../../style/List.css';
 
@@ -36,8 +37,7 @@ const List: FC = () => {
     return (
         <>
             <div>
-                <input type="text" value={todo} onChange={onChangeTodo} placeholder='input'/>
-                <button className='addListButton' onClick={onClickAdd}>Add</button>
+                <Add todo={todo} onChangeTodo={onChangeTodo} onClickAdd={onClickAdd}/>
                 <Delete todoLists={todoLists} onClickDelete={onClickDelete}/>
             </div>
         </>
