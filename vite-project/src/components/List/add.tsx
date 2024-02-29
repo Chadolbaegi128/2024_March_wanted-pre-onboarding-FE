@@ -1,13 +1,16 @@
 import { FC } from 'react';
+import '../../style/Add.css';
+
+type Props = {
+    todo: string;
+    todoLists: string[];
+};
 
 const Add: FC = () => {
     return (
         <>
             <div>
-                <input type="text" />
-                <ul>
-                    <li>1</li>
-                </ul>
+                <input type="text" className='addListButton'/>
             </div>
         </>
     )

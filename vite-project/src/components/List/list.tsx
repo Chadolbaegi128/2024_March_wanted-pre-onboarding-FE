@@ -30,9 +30,8 @@ const List: FC = () => {
         const newTodoLists = [...todoLists];
         // 투두리스트 배열로부터 해당 요소 삭제
         newTodoLists.splice(index, 1);
-        setTodoLists(newTodoLists); // => 특정 투두 항목이 제거된 투두리스트 배열를 저장
-        
-    }
+        setTodoLists(newTodoLists); // => 특정 투두 항목이 제거된 투두리스트 배열를 저장        
+    };
 
     return (
         <>
