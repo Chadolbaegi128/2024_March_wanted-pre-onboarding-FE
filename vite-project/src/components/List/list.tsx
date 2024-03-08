@@ -1,6 +1,7 @@
-import { ChangeEvent, FC, useState } from 'react';
+import {FC, ChangeEvent, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addTodo, deleteTodo } from '../store/todoSlice';
+import { addTodo, deleteTodo } from '../../store/todoSlice.ts';
+import { Input } from './input';
 
 const List: FC = () => {
     const dispatch = useDispatch();
@@ -16,10 +17,21 @@ const List: FC = () => {
         dispatch(deleteTodo(index));
     }
 
+    const onChangeTodo = (e: ChangeEvent<HTMLInputElement>) => {
+        setTodo(e.target.value);
+    }
+
     return (
         <>
             <div>
-                
+                <Input type="text" todo={todo} onChangeTodo={onChangeTodo}/>
+                <ul>
+                    {todos.map((todo: any, index: number) => (
+                        <li key={index}>
+                            {todo}{' '}
+                            
+                    ))}
+                </ul>
             </div>
         </>
     );
