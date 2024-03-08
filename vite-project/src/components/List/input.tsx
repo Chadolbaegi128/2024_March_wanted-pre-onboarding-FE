@@ -3,7 +3,6 @@ import { ChangeEvent, FC } from 'react';
 type Props = {
     todo: string;
     onChangeTodo: (e: ChangeEvent<HTMLInputElement>) => void;
-
 };
 
 const Input: FC<Props> = (prop) => {
