@@ -5,3 +5,17 @@ div {
   text-align: center;
 }
 
+.addListButton {
+  margin-left: 16px;
+}
+
+.todoLists {
+  border: solid 1px #ccc;
+  padding: 16px;
+  margin: 8px;
+}
+
+.todoWrapper {
+  display: flex;
+  align-items: center;
+}

@@ -1,43 +1,25 @@
 import { ChangeEvent, FC, useState } from 'react';
-import Add from './add';
-import Delete from './delete';
+import { useDispatch, useSelector } from 'react-redux';
+import { addTodo, deleteTodo } from '../store/todoSlice';
 
 const List: FC = () => {
-    // 할일 글 State
-    const [todo, setTodo] = useState<string>('');
+    const dispatch = useDispatch();
+    const todos = useSelector((state: any) => state.todos.todos);
+    const [todo, setTodo] = useState('');
 
-    // 투두 리스트 State
-    const [todoLists, setTodoLists] = useState<string[]>([]);
-
-    // 인풋창에 할일 입력 시 입력 내용을 State에 설정
-    const onChangeTodo = (e: ChangeEvent<HTMLInputElement>) => setTodo(e.target.value);
-
-    // [Add] 버튼 클릭 시
-    const onClickAdd = () => {
-        // State 변경을 정상적으로 감지하기 위해 배열을 생성
-        const newTodoLists = [...todoLists];
-        // 인풋 창에 입력한 내용을 투두리스트 배열에 추가
-        newTodoLists.push(todo);
-        setTodoLists(newTodoLists); // => 특정 투두 항목이 추가된 투두리스트 배열로 업데이트
-
-        // 인풋 창 비우기
-        setTodo(''); 
+    const handleAddTodo = () => {
+        dispatch(addTodo(todo));
+        setTodo('');
     };
 
-    // [Delete] 버튼 클릭 시(몇 번째 버튼이 클릭되었는지 인수로 전달)
-    const onClickDelete = (index: number) => {
-        // State 변경을 정상적으로 감지하기 위해 배열을 생성
-        const newTodoLists = [...todoLists];
-        // 투두리스트 배열로부터 해당 요소 삭제
-        newTodoLists.splice(index, 1);
-        setTodoLists(newTodoLists); // => 특정 투두 항목이 제거된 투두리스트 배열를 저장        
-    };
+    const handleDeleteTodo = (index: number) => {
+        dispatch(deleteTodo(index));
+    }
 
     return (
         <>
             <div>
-                <Add todo={todo} onChangeTodo={onChangeTodo} onClickAdd={onClickAdd}/>
-                <Delete todoLists={todoLists} onClickDelete={onClickDelete}/>
+                
             </div>
         </>
     );
